@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
-    price: Number,
+    price: String,
     bathrooms: Number,
     bedrooms: Number,
     minNights: Number,
-    securityDeposit: Number,
-    cleaningFee: Number,
-    reviewRatings: Number
+    securityDeposit: String,
+    cleaningFee: String,
+    numReviews: Number,
+    reviewRating: Number
 });
 
 const Listing = mongoose.model('Listing', listingSchema);
