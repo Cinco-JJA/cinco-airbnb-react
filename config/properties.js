@@ -1,28 +1,31 @@
 
-var chalk = require('chalk');
+require('dotenv').config();
+const chalk = require('chalk');
 
-var connected = chalk.bold.cyan;
-var error = chalk.bold.yellow;
-var disconnected = chalk.bold.red;
-var termination = chalk.bold.magenta;
+const db_connected = chalk.bold.cyan;
+const db_error = chalk.bold.yellow;
+const db_disconnected = chalk.bold.red;
+const db_termination = chalk.bold.magenta;
 
-var success = chalk.bold.blueBright;
-var status = chalk.gray;
-var error = chalk.bold.redBright;
-var important = chalk.bold.cyanBright;
+const success = chalk.bold.blueBright;
+const status = chalk.gray;
+const error = chalk.bold.redBright;
+const important = chalk.bold.cyanBright;
+
+const projectName = require('../package.json').name
 
 
 module.exports = {
     COLORS: {
-        connected,
-        error,
-        disconnected,
-        termination,
+        db_connected,
+        db_error,
+        db_disconnected,
+        db_termination,
         success,
         status,
         important,
         error
     },
     PORT : 4000,
-    DB : 'mongodb://localhost:27017/cinco-airbnb',
+    DB : `${process.env.MONGO_URI}${projectName}`,
 }
