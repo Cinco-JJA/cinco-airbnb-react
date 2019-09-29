@@ -4,18 +4,10 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
-const hbs = require('hbs');
 const logger = require('morgan');
 const path = require('path');
-const { connectToDB } = require('./bin/seeds')
-
-const index = require('./routes/index');
-const listing = require('./routes/listing');
-
-
-const conn = connectToDB()
-const app_name = require('./package.json').name;
-const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
+const hbs = require('hbs');
+const db = require('./config/database')();
 
 const app = express();
 
@@ -40,7 +32,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'TeamCinco - AirBnB';
 
-app.use('/', index);
-app.use('/api', listing);
+app.use('/', require('./routes/index'));
+app.use('/api', require('./routes/api/listing'));
+
 
 module.exports = app;
