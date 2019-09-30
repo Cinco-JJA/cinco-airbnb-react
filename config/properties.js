@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const chalk = require('chalk');
 
@@ -12,8 +11,7 @@ const status = chalk.gray;
 const error = chalk.bold.redBright;
 const important = chalk.bold.cyanBright;
 
-const projectName = require('../package.json').name
-
+const projectName = process.env.MONGODB_NAME || require('../package.json').name
 
 module.exports = {
     COLORS: {
@@ -26,6 +24,6 @@ module.exports = {
         important,
         error
     },
-    PORT : 4000,
-    DB : `${process.env.MONGO_URI}${projectName}`,
+    PORT: 4000,
+    DB: `${process.env.MONGODB_URI}/${projectName}`,
 }
