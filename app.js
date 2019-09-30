@@ -33,7 +33,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'TeamCinco - AirBnB';
 
 app.use('/', require('./routes/index'));
-app.use('/api', require('./routes/api/listing'));
+app.use('/api/listing', require('./routes/api/listing'));
 
 
 module.exports = app;

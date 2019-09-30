@@ -10,8 +10,8 @@ listingSchema.statics = {
         this.find(query, cb);
     },
 
-    getByName: function(query, cb) {
-        this.find(query, cb);
+    getById: function(query, cb) {
+        this.findById(query, cb);
     },
 
     update: function(query, updateData, cb) {
@@ -22,7 +22,7 @@ listingSchema.statics = {
         this.findOneAndDelete(query, cb);
     },
 
-    properties: ['bathrooms', 'bedrooms', 'minNights', 'securityDeposit', 'cleaningFee', 'numReviews', 'reviewRating']
+    properties: ["price", "bathrooms", "bedrooms", "minNights", "securityDeposit", "cleaningFee", "numReviews", "reviewRating"]
 }
 
 var Listing = mongoose.model('Listing', listingSchema);

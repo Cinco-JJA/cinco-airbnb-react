@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.post('/create', Listing.createListing);
 router.get('/get', Listing.getListings);
-router.get('/get/:name', Listing.getListing);
+router.get('/get/:id', Listing.getListing);
 router.put('/update/:id', Listing.updateListing);
 router.delete('/remove/:id', Listing.removeListing);
 

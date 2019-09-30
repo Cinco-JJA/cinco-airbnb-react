@@ -1,10 +1,8 @@
 var Listing = require('./Listing.doa');
 
 exports.createListing = function(req, res, next) {
-    var listingData = {
-        name: req.body.name,
-        description: req.body.description
-    }
+    var listingData = {}
+    Listing.properties.forEach(k => listingData[k] = req.body[k])
 
     Listing.create(listingData, function(err, listing) {
         if (err) {
@@ -41,7 +39,9 @@ exports.getListing = function(req, res, next) {
 
 exports.updateListing = function(req, res, next) {
     listingData = {}
-    Listing.properties.forEach(k => listingData[k] = req.body[k])
+    Listing.properties.forEach(k => {
+        if (req.body[k]) listingData[k] = req.body[k]
+    })
 
     Listing.update({ _id: req.params.id }, listingData, function(err, listing) {
         if (err) {

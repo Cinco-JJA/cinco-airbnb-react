@@ -1,0 +1,11 @@
+@import 'parts/settings';
+@import 'parts/auth';
+@import 'parts/layout';
+@import 'parts/global';
+.bginfo {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: .8rem;
+    text-align: right;
+}

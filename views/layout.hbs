@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,24 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
+  <header>
+    <div id="nav-logo">
 
-  {{{body}}}
+    </div>
+    <div id="nav-search-bar">
 
-  <script src="/javascripts/script.js"></script>
+    </div>
+    <div id="nav-menu">
+      <a href="/"></a>
+      <a href="/search"></a>
+    </div>
+  </header>
+  <div id="site-content">
+    {{{body}}}
+  </div>
+  <script src="/javascripts/layout.js"></script>
 </body>
+
 </html>
