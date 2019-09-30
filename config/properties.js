@@ -6,10 +6,10 @@ const db_error = chalk.bold.yellow;
 const db_disconnected = chalk.bold.red;
 const db_termination = chalk.bold.magenta;
 
-const success = chalk.bold.blueBright;
+const success = chalk.bold.bgGreen;
 const status = chalk.gray;
-const error = chalk.bold.redBright;
-const important = chalk.bold.cyanBright;
+const error = chalk.bold.bgRed;
+const important = chalk.bold.bgCyan;
 
 const DB = process.env.MONGODB_URI || `mongodb://localhost/${require('../package.json').name}`
 const NAME = process.env.MONGODB_NAME

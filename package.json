@@ -6,8 +6,8 @@
         "start": "node ./bin/www",
         "dev": "DEBUG=cinco-airbnb:* nodemon ./bin/www",
         "dev-windows": "nodemon ./bin/www",
-        "seedDB": "cd bin && require('./seeds.js').seedDB()",
-        "createDataFile": "cd bin && require('./seeds.js').writeCorrectedJSONFile()"
+        "seedDB": "cd bin && node -e \"require('./seeds.js').seedDB()\"",
+        "createDataFile": "cd bin && node -e \"require('./seeds.js').writeCorrectedJSONFile()\""
     },
     "dependencies": {
         "body-parser": "^1.18.3",

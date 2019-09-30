@@ -1,6 +1,6 @@
 const fs = require('fs')
 const mongoose = require('mongoose')
-const Listing = require('../models/Listing')
+const Listing = require('../models/Listing.doa')
 const { COLORS } = require('../config/properties')
 const connect_db = require('../config/database')
 
@@ -41,7 +41,7 @@ async function writeCorrectedJSONFile(file, corrections) {
 
     let rawData = fs.readFileSync(file);
     let dataSet = JSON.parse(rawData);
-    console.log(`Loaded data set from file ${file}`)
+    console.log(COLORS.success(`Loaded data set from file ${file}`))
 
     let dataKeys = Object.keys(dataSet);
     let dataArrays = dataKeys.map(key => Object.keys(dataSet[key]).map(listingIndex => dataSet[key][listingIndex]))
@@ -78,13 +78,14 @@ async function writeCorrectedJSONFile(file, corrections) {
 async function seedDB(file = './dataCorrected.json') {
     let rawData = fs.readFileSync(file);
     let dataSet = JSON.parse(rawData);
-    console.log(`Loaded data set from file ${file}`)
+    console.log(COLORS.success(`Loaded data set from file ${file}`))
+
     await connect_db()
     await Listing.collection.insertMany(dataSet, async function(err, results) {
         if (err) {
-            console.error(err);
+            console.log(COLORS.error(err));
         } else {
-            console.log("Multiple documents inserted to Collection...closing...");
+            console.log(COLORS.success("Multiple documents inserted to Collection...closing..."));
             await mongoose.connection.close()
         }
     });
@@ -92,6 +93,5 @@ async function seedDB(file = './dataCorrected.json') {
 
 module.exports = {
     writeCorrectedJSONFile,
-    connectToDB,
     seedDB
 }

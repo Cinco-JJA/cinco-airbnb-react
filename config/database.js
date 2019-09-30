@@ -9,11 +9,11 @@ module.exports = function() {
     });
 
     mongoose.connection.on('connected', function() {
-        console.log(COLORS.db_connected("Mongoose default connection is open to ", DB));
+        console.log(COLORS.db_connected(`Mongoose default connection is open to ${DB}`));
     });
 
     mongoose.connection.on('error', function(err) {
-        console.log(COLORS.db_error("Mongoose default connection has occurred " + err + " error"));
+        console.log(COLORS.db_error(`Mongoose default connection has occurred ${err} error`));
     });
 
     mongoose.connection.on('disconnected', function() {

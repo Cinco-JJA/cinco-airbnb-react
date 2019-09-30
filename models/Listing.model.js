@@ -1,6 +1,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const polygonSchema = new mongoose.Schema({
+    type: {
+        type: String,
+        enum: ['Polygon'],
+        required: true
+    },
+    coordinates: {
+        type: [
+            [
+                [Number]
+            ]
+        ],
+        required: true
+    }
+});
+
 /**
  * Schema for an AirBnB listing model.
  * @property {String} price Price in USD/night
@@ -10,7 +26,8 @@ const Schema = mongoose.Schema;
  * @property {String} securityDeposit Price of security deposit in USD
  * @property {String} cleaningFee Price for required cleaning in USD
  * @property {Number} numReviews Number number of reviews
- * @property {Number} reviewRating rating
+ * @property {Number} reviewRating Rating
+ * @property {[[[Number]]]} neighborhood Array of array of arrays of numbers for GeoJSON polygon object type. https://mongoosejs.com/docs/geojson.html
  */
 const listingSchema = new Schema({
     price: {
@@ -52,7 +69,8 @@ const listingSchema = new Schema({
         type: Number,
         unique: false,
         required: true
-    }
+    },
+    neighborhood: polygonSchema
 });
 
 module.exports = listingSchema;
