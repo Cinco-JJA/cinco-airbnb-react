@@ -27,7 +27,8 @@ const polygonSchema = new mongoose.Schema({
  * @property {String} cleaningFee Price for required cleaning in USD
  * @property {Number} numReviews Number number of reviews
  * @property {Number} reviewRating Rating
- * @property {[[[Number]]]} neighborhood Array of array of arrays of numbers for GeoJSON polygon object type. https://mongoosejs.com/docs/geojson.html
+ * @property {String} neighborhood Neighborhood the listing is in
+ * @property {[[[Number]]]} location Array of array of arrays of numbers for GeoJSON polygon object type. https://mongoosejs.com/docs/geojson.html
  */
 const listingSchema = new Schema({
     price: {
@@ -70,7 +71,10 @@ const listingSchema = new Schema({
         unique: false,
         required: true
     },
-    neighborhood: polygonSchema
+    neighborhood: {
+        type: String
+    },
+    location: polygonSchema
 });
 
 module.exports = listingSchema;
