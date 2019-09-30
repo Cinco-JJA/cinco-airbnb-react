@@ -11,19 +11,23 @@ const status = chalk.gray;
 const error = chalk.bold.redBright;
 const important = chalk.bold.cyanBright;
 
-const projectName = process.env.MONGODB_NAME || require('../package.json').name
+const DB = process.env.MONGODB_URI || `mongodb://localhost/${require('../package.json').name}`
+const NAME = process.env.MONGODB_NAME
+const PORT = process.env.PORT || 3000
+const COLORS = {
+    db_connected,
+    db_error,
+    db_disconnected,
+    db_termination,
+    success,
+    status,
+    important,
+    error
+}
 
 module.exports = {
-    COLORS: {
-        db_connected,
-        db_error,
-        db_disconnected,
-        db_termination,
-        success,
-        status,
-        important,
-        error
-    },
-    PORT: 4000,
-    DB: `${process.env.MONGODB_URI}/${projectName}`,
+    COLORS,
+    DB,
+    PORT,
+    NAME
 }
