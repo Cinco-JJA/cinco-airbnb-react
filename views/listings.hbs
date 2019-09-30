@@ -1,6 +1,7 @@
-<form id="search-bar">
-    <div>
-        <input spellcheck="true" autocorrect="on" autocomplete="on" name="query" role="combobox" placeholder="Search">
-    </div>
-</form>
+<h1>Listings Page</h1>
+<div id="listings">
+{{#each listings}}
+    {{> listingDetails }}
+{{/each}}
+</div>
 <script src="/javascripts/listings.js"></script>

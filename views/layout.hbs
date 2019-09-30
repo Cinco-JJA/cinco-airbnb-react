@@ -7,24 +7,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <div id="nav-logo">
-
+  <div id="application">
+    <header class="sticky">
+      <div id="nav">
+        <div id="nav-logo">
+        </div>
+        <div id="nav-search-bar" hidden="true">
+          <form action="/" method="GET" id="search-bar">
+            <div>
+              <input type="text" spellcheck="true" autocorrect="on" autocomplete="on" name="query"
+                placeholder="Search" required>
+            </div>
+          </form>
+        </div>
+        <div id="nav-menu">
+          <a href="/">Home</a>
+          <a href="/listings">Listings</a>
+        </div>
+      </div>
+    </header>
+    <div id="site-content">
+      {{{body}}}
     </div>
-    <div id="nav-search-bar">
-
-    </div>
-    <div id="nav-menu">
-      <a href="/"></a>
-      <a href="/search"></a>
-    </div>
-  </header>
-  <div id="site-content">
-    {{{body}}}
   </div>
+  {{> alert }}
   <script src="/javascripts/layout.js"></script>
 </body>
 

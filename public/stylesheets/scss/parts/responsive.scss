@@ -1,0 +1,12 @@
+
+@media (max-width: 975px) {
+    #listing {
+        flex-basis: 33%;
+    }
+}
+
+@media (max-width:468px) {
+    #listing {
+        flex-basis: 50%;
+    }
+}
