@@ -1,0 +1,31 @@
+$airbnb-red: #ff5a60;
+$airbnb-peach: #ffa990;
+$airbnb-blue: #017987;
+$airbnb-yellow: #ffb504;
+$primary-color: #7c5cbf;
+$text-generic: #484848;
+$text-placeholder: #757575;
+$gray: #777;
+$lightgray: #eee;
+$darkgray: #221e1f;
+$yellow: #f7be0d;
+$red: #d50000;
+$logoyellow: #ffe081;
+$header-height: 81px;
+$header-font: 'Montserrat',
+Helvetica,
+Arial,
+sans-serif;
+$body-font: 'Lato',
+'Open Sans',
+Helvetica,
+Arial,
+sans-serif;
+$font-awesome: 'Font Awesome 5 Free';
+@mixin alpha-attribute($attribute, $color, $background) {
+    $percent: alpha($color) * 100%;
+    $opaque: opacify($color, 1);
+    $solid-color: mix($opaque, $background, $percent);
+    #{$attribute}: $solid-color;
+    #{$attribute}: $color;
+}
